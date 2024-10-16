@@ -16,7 +16,7 @@ int main(){
     //printf("%d", is_even(36));
     int p;
     for (p = -10; p < 10;p++){
-        printf("%lf\n", sin_approx(p, 2, 3, 13));
+        printf("%lf\n", cos_approx(p, 3, 5, 13));
     }
         return 0;
 }
@@ -34,7 +34,7 @@ float sin_approx(float x, float fxn_scalar, float x_scalar, int degree){
     //operations to simplify x
     double scaled_x = (x * x_scalar) - (floor((x * x_scalar) / (2*PI)) * (2*PI)); // Removes extra revolutions from the fxn
     int nb_halves; //nbs of half revolution
-    if (nb_halves = floor(scaled_x / PI)){
+    if (nb_halves = floor(scaled_x / PI)){ //If in positive y-interval, leave as is. If in negative interval (ie: pi-2pi), reverse sign of x
         scaled_x -= PI;
         scaled_x = -scaled_x;
     }
