@@ -5,7 +5,7 @@ int factorial(int nb);
 
 int main(){
     //printf("%d\n", factorial(7));
-    printf("%lf\n", sin_approx(1.3, 1, 13));
+    printf("%lf\n", sin_approx(7, 1, 13));
     return 0;
 }
 
@@ -15,12 +15,14 @@ float sin_approx(float x, float x_scalar, int degree){
     int i;
     double increment;
     double value = 0;
-    double scaled_x = x * x_scalar;
     double power_term;
     double factorial_term;
     double MAX_DOUBLE = 2000000000;
     int magn_reducer = 1000;
-    
+    const double PI = 3.14159;
+    double scaled_x = (x * x_scalar) - (floor((x * x_scalar) / (2*PI)) * (2*PI)); // Removes extra revolutions from the fxn
+    printf("%lf\n", floor((x * x_scalar / (2*PI))));
+
     for (i = 0; i <= degree; i++){ //Adds degrees of precision until inputted degree or until precision limit
         power_term = roundf(pow(scaled_x, 2 * i + 1) * 10000) / 10000;
         factorial_term = factorial(2 * i + 1);
