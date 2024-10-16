@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-float sin_approx(float x, float x_scalar, int degree);
-float cos_approx(float x, float x_scalar, int degree);
+float sin_approx(float x, float fxn_scalar, float x_scalar, int degree);
+float cos_approx(float x, float fxn_scalar, float x_scalar, int degree);
 int factorial(int nb);
 bool is_even(int nb);
 
@@ -16,12 +16,12 @@ int main(){
     //printf("%d", is_even(36));
     int p;
     for (p = -10; p < 10;p++){
-        printf("%lf\n", cos_approx(p, -2, 13));
+        printf("%lf\n", sin_approx(p, 2, 3, 13));
     }
         return 0;
 }
 
-float sin_approx(float x, float x_scalar, int degree){
+float sin_approx(float x, float fxn_scalar, float x_scalar, int degree){
     /* Approximates sin function with x-transform by a scalar. Returns value at desired x, centered at 0*/
 
     int i;
@@ -55,12 +55,12 @@ float sin_approx(float x, float x_scalar, int degree){
             //printf("%f\n\n", value);
         } 
     }
-    return value;
+    return fxn_scalar * value;
 }
 
-float cos_approx(float x, float x_scalar, int degree){
+float cos_approx(float x, float fxn_scalar, float x_scalar, int degree){
     /* Uses sin approx to approx cos*/
-    return sin_approx(x + (PI/(2*x_scalar)), x_scalar, degree);
+    return sin_approx(x + (PI/(2*x_scalar)), fxn_scalar, x_scalar, degree);
 }
 
 int factorial(int nb){ //works
