@@ -1,19 +1,16 @@
 #include <stdio.h>
 #include <math.h>
-
+// FUNCTIONS
 float sin_approx(float x, float fxn_scalar, float x_scalar, int degree);
 float cos_approx(float x, float fxn_scalar, float x_scalar, int degree);
 int factorial(int nb);
 bool is_even(int nb);
 
-
+// CONSTANTS
 const double PI = 3.14159;
 
 
 int main(){
-    //printf("%d\n", factorial(7));
-    //printf("%lf\n", sin_approx(4, 1, 13)); // Max 13 degrees before the factorial gets too big
-    //printf("%d", is_even(36));
     int p;
     for (p = -10; p < 10;p++){
         printf("%lf\n", cos_approx(p, 3, 5, 13));
