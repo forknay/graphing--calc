@@ -1,6 +1,3 @@
-#ifndef WINDOW_H
-#define WINDOW_H
-
 #pragma once
 
 #include <Windows.h>
@@ -20,5 +17,3 @@ private:
     HINSTANCE m_hInstance;
     HWND m_hWnd;
 };
-
-#endif

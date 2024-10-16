@@ -1,5 +1,5 @@
-#include "window.h"
-#include "tchar.h"
+#include "Window.h"
+#include <tchar.h>
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -19,10 +19,10 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 Window::Window()
     : m_hInstance(GetModuleHandle(nullptr))
 {
-    const char wchar_t* CLASS_NAME = L"ThomasWindowClass";
+    const wchar_t* CLASS_NAME = L"WindowClass";
 
     WNDCLASS wndClass = {};
-    wndClass.lpszClassName = CLASS_NAME;
+    wndClass.lpszClassName = _T("WindowClass");
     wndClass.hInstance = m_hInstance;
     wndClass.hIcon = LoadIcon(NULL, IDI_WINLOGO);
     wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
@@ -45,8 +45,8 @@ Window::Window()
 
     m_hWnd = CreateWindowEx(
         0,
-        CLASS_NAME,
-        L"Title",
+        _T("WindowClass"),
+        _T("Graphing Calc"),
         style,
         rect.left,
         rect.top,
@@ -64,9 +64,9 @@ Window::Window()
 
 Window::~Window()
 {
-    const wchar_t* CLASS_NAME = L"Thomas's Window Class";
+    const wchar_t* CLASS_NAME = L"Window Class";
 
-    UnregisterClass(CLASS_NAME, m_hInstance);
+    UnregisterClass(_T("WindowClass"), m_hInstance);
 }
 
 bool Window::ProcessMessages()
