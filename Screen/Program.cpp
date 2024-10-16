@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Window.cpp"
 #include "Window.h"
 
 int main()
@@ -10,7 +11,7 @@ int main()
     bool running = true;
     while (running)
     {
-        if (pWindow->ProcessMessages())
+        if (!pWindow->ProcessMessages())
         {
             std::cout << "Closing Window";
             running = false;
